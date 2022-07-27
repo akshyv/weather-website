@@ -5,6 +5,7 @@ const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 
 const app = express();
+const port = process.env.PORT || 3000;
 //define path for express configs
 
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -22,14 +23,14 @@ app.use(express.static(publicDirectoryPath));
 app.get("", (req, res) => {
   res.render("index", {
     title: "Weather",
-    name: "Akshy",
+    name: "Ak",
   });
 });
 
 app.get("/about", (req, res) => {
   res.render("about", {
     title: "This is help message",
-    name: "Akshy1",
+    name: "Ak",
   });
 });
 
@@ -37,7 +38,7 @@ app.get("/help", (req, res) => {
   res.render("help", {
     helpText: "This is some help",
     title: "Help",
-    name: "Akshy2",
+    name: "Ak",
   });
 });
 
@@ -95,6 +96,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server is up on the port 3000");
+app.listen(port, () => {
+  console.log(`Server is up on the port ${port}`);
 });
