@@ -16,11 +16,18 @@ const forecast = (latitude, longitude, callback) => {
       callback(
         undefined,
         body.current.weather_descriptions[0] +
-          ". the temperature is: " +
+          ". the temperature is " +
           body.current.temperature +
-          " degrees out but it feels like: " +
+          " degrees out but it feels like " +
           body.current.feelslike +
-          " degrees out"
+          " degrees out, Wind speed is " +
+          body.current.wind_speed +
+          "m/s, Atmospheric pressure is " +
+          body.current.pressure +
+          " N/m2, The humidity is  " +
+          body.current.temperature +
+          " % Time observation made " +
+          body.current.observation_time
       );
     }
   });
